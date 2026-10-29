@@ -13,7 +13,7 @@ function makeConcrete(dark: boolean) {
   const c = document.createElement("canvas");
   c.width = c.height = size;
   const g = c.getContext("2d")!;
-  g.fillStyle = dark ? "#85857f" : "#a9a8a2";
+  g.fillStyle = dark ? "#7d7f7d" : "#9c9d9a";
   g.fillRect(0, 0, size, size);
   let seed = 7;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
@@ -24,7 +24,7 @@ function makeConcrete(dark: boolean) {
   }
   g.putImageData(img, 0, 0);
   for (let y = 0; y < size; y += 32) {
-    g.fillStyle = `rgba(0,0,0,${0.1 + rnd() * 0.12})`;
+    g.fillStyle = `rgba(0,0,0,${0.05 + rnd() * 0.07})`;
     g.fillRect(0, y, size, 2);
     g.fillStyle = `rgba(${rnd() > 0.5 ? "255,255,255" : "0,0,0"},${0.03 + rnd() * 0.05})`;
     g.fillRect(0, y + 2, size, 30);
@@ -92,7 +92,7 @@ function Monolith({ dark, started, onReady }: Pick<Props, "dark" | "started" | "
     const e = 1 - Math.pow(1 - p, 3);
     plane.constant = e * 5.6 - 0.2;
     edges.current.forEach((m) => { m.opacity = 1 - e * 0.78; });
-    if (group.current) group.current.position.x = size.width / size.height > 1.25 ? 1.9 : 0;
+    if (group.current) group.current.position.x = size.width / size.height > 1.25 ? 3.4 : 0;
   });
 
   const lineColor = dark ? "#e7e2d6" : "#171916";
@@ -126,15 +126,15 @@ function Rig({ dark }: { dark: boolean }) {
     smooth.current.y += (pointer.current.y - smooth.current.y) * 0.04;
     const t = state.clock.elapsedTime;
     const a = 0.62 + Math.sin(t * 0.14) * 0.07 + smooth.current.x * 0.12;
-    const r = 13.5;
-    state.camera.position.set(Math.sin(a) * r, 4.4 - smooth.current.y * 0.9, Math.cos(a) * r);
-    state.camera.lookAt(0.6, 2.1, 0);
+    const r = 17;
+    state.camera.position.set(Math.sin(a) * r, 5 - smooth.current.y * 0.9, Math.cos(a) * r);
+    state.camera.lookAt(1.4, 2.0, 0);
   });
   return (
     <>
       <hemisphereLight args={[dark ? "#9aa3b0" : "#fff3dc", dark ? "#1a1a18" : "#bfae92", dark ? 0.55 : 0.9]} />
       <directionalLight
-        position={[-7, 10, 6]} intensity={dark ? 2.6 : 3.1} color={dark ? "#ffd9b0" : "#fff0d6"} castShadow
+        position={[-7, 10, 6]} intensity={dark ? 2.6 : 3.1} color={dark ? "#ffd9b0" : "#fff6ea"} castShadow
         shadow-mapSize={[2048, 2048]} shadow-camera-left={-11} shadow-camera-right={11} shadow-camera-top={11} shadow-camera-bottom={-11}
         shadow-camera-near={1} shadow-camera-far={34} shadow-bias={-0.0004} shadow-normalBias={0.03}
       />

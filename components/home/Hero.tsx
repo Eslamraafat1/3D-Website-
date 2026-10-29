@@ -53,7 +53,7 @@ export default function Hero({ lang, dict, projects }: { lang: Locale; dict: Dic
         if (reduced) return;
         const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
         tl.fromTo("[data-step='meta']", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 1 }, 0.1)
-          .fromTo(".hero-line .line-inner", { yPercent: 112 }, { yPercent: 0, duration: 1.6, stagger: 0.14 }, 1.15)
+          .fromTo(".hero-line .line-inner", { yPercent: 112, y: 0 }, { yPercent: 0, y: 0, duration: 1.6, stagger: 0.14 }, 1.15)
           .fromTo("[data-step='copy']", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1.2, stagger: 0.12 }, 1.9)
           .fromTo("[data-step='scroll']", { opacity: 0 }, { opacity: 1, duration: 1 }, 2.6);
       }, el);
@@ -111,7 +111,7 @@ export default function Hero({ lang, dict, projects }: { lang: Locale; dict: Dic
             </h1>
           </div>
 
-          <div className="grid gap-8 xl:col-span-4 xl:pb-3">
+          <div className="grid gap-8 bg-surface/75 xl:col-span-4 xl:p-6">
             <p data-step="copy" className="hero-i lead">{dict.hero.sub}</p>
             <div data-step="copy" className="hero-i flex flex-wrap gap-3">
               <ButtonLink href={`/${lang}/work`} solid>{dict.hero.cta1}</ButtonLink>
