@@ -207,8 +207,8 @@ html.js .hero-i { opacity: 0; }
 :root[data-theme="dark"] .input[aria-invalid="true"] { border-color: #e2705c; }
 .err { color: #a5341f; font-size: 0.85rem; }
 :root[data-theme="dark"] .err { color: #f09a88; }
-select.input { appearance: none; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-size: 5px 5px; background-position: calc(100% - 12px) 55%, calc(100% - 7px) 55%; background-repeat: no-repeat; padding-inline-end: 1.8rem; }
-[dir="rtl"] select.input { background-position: 12px 55%, 7px 55%; }
+select.input { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23888' stroke-width='1.5'><path d='M1 1.5l5 5 5-5'/></svg>"); background-size: 12px 8px; background-position: right 2px center; background-repeat: no-repeat; padding-inline-end: 1.8rem; }
+[dir="rtl"] select.input { background-position: left 2px center; }
 select.input option { background: var(--bg); color: var(--fg); }
 
 dialog.lightbox { border: 0; padding: 0; background: transparent; width: 100vw; height: 100dvh; max-width: none; max-height: none; color: #f1ede3; }

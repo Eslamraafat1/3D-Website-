@@ -132,13 +132,13 @@ function Rig({ dark }: { dark: boolean }) {
   });
   return (
     <>
-      <hemisphereLight args={[dark ? "#9aa3b0" : "#fff3dc", dark ? "#1a1a18" : "#bfae92", dark ? 0.55 : 0.9]} />
+      <hemisphereLight args={[dark ? "#9aa3b0" : "#fff3dc", dark ? "#1a1a18" : "#bfae92", dark ? 1.25 : 0.9]} />
       <directionalLight
-        position={[-7, 10, 6]} intensity={dark ? 2.6 : 3.1} color={dark ? "#ffd9b0" : "#fff6ea"} castShadow
+        position={[-7, 10, 6]} intensity={dark ? 3.4 : 3.1} color={dark ? "#ffe6cc" : "#fff6ea"} castShadow
         shadow-mapSize={[2048, 2048]} shadow-camera-left={-11} shadow-camera-right={11} shadow-camera-top={11} shadow-camera-bottom={-11}
         shadow-camera-near={1} shadow-camera-far={34} shadow-bias={-0.0004} shadow-normalBias={0.03}
       />
-      <directionalLight position={[8, 3, -4]} intensity={dark ? 0.45 : 0.3} color="#a9b7c9" />
+      <directionalLight position={[8, 3, -4]} intensity={dark ? 1.1 : 0.3} color="#a9b7c9" />
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow position={[0, -0.001, 0]}>
         <planeGeometry args={[60, 60]} />
         <shadowMaterial opacity={dark ? 0.5 : 0.3} color={dark ? "#000" : "#2a2014"} />

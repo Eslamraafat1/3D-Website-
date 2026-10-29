@@ -130,7 +130,7 @@ export default function WorkBrowser({ projects, lang, dict }: { projects: Projec
         </div>
       </form>
 
-      <p className="mono my-8 text-fg-2" role="status" aria-live="polite">
+      <p className="mono mb-14 mt-8 text-fg-2" role="status" aria-live="polite">
         {dict.work.showing} <span className="text-fg">{num(results.length, lang)}</span> {dict.work.of} {num(projects.length, lang)} {dict.work.results}
       </p>
 

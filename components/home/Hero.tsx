@@ -56,6 +56,8 @@ export default function Hero({ lang, dict, projects }: { lang: Locale; dict: Dic
           .fromTo(".hero-line .line-inner", { yPercent: 112, y: 0 }, { yPercent: 0, y: 0, duration: 1.6, stagger: 0.14 }, 1.15)
           .fromTo("[data-step='copy']", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1.2, stagger: 0.12 }, 1.9)
           .fromTo("[data-step='scroll']", { opacity: 0 }, { opacity: 1, duration: 1 }, 2.6);
+        gsap.to("#hero-title", { yPercent: -18, opacity: 0.15, ease: "none", scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: true } });
+        gsap.to("[data-step='copy']", { y: -60, ease: "none", scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: true } });
       }, el);
     } catch {
       document.documentElement.classList.remove("js"); // never leave hero text hidden
