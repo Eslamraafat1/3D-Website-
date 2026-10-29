@@ -44,14 +44,14 @@ export default function Hero({ lang, dict, projects }: { lang: Locale; dict: Dic
   useEffect(() => {
     const el = root.current;
     if (!el) return;
-    const timer = setTimeout(() => setStarted(true), reduced ? 0 : 1100);
+    const timer = setTimeout(() => setStarted(true), reduced ? 0 : 1700);
     const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0 });
     io.observe(el);
     let ctx: gsap.Context | undefined;
     try {
       ctx = gsap.context(() => {
         if (reduced) return;
-        const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+        const tl = gsap.timeline({ defaults: { ease: "expo.out" }, delay: 0.7 });
         tl.fromTo("[data-step='meta']", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 1 }, 0.1)
           .fromTo(".hero-line .line-inner", { yPercent: 112, y: 0 }, { yPercent: 0, y: 0, duration: 1.6, stagger: 0.14 }, 1.15)
           .fromTo("[data-step='copy']", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1.2, stagger: 0.12 }, 1.9)

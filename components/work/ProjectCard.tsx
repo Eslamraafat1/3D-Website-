@@ -17,7 +17,7 @@ export default function ProjectCard({
 }) {
   return (
     <Reveal as="article" delay={delay} className={className}>
-      <Link href={`/${lang}/work/${project.slug}`} className="group block">
+      <Link href={`/${lang}/work/${project.slug}`} className="group block" data-cursor={dict.common.viewProject}>
         <div className="mono mb-3 flex items-center justify-between gap-4 text-fg-2">
           <span dir="ltr"><span className="text-accent-text">{project.number}</span> — {project.coordsLabel}</span>
           <span className="hidden sm:inline">{project.categoryLabel}</span>

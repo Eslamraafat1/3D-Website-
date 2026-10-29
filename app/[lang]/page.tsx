@@ -5,6 +5,8 @@ import { getDictionary } from "@/lib/i18n/dictionaries";
 import { getArticles, getFeaturedProject, getProjects, getTeam } from "@/lib/services/content";
 import { pageMetadata } from "@/lib/seo";
 import Hero from "@/components/home/Hero";
+import Marquee from "@/components/home/Marquee";
+import Reel from "@/components/home/Reel";
 import MaterialLab from "@/components/home/MaterialLab";
 import Blueprint from "@/components/home/Blueprint";
 import { ContactBlock, Featured, JournalPreview, Philosophy, SelectedWorks, Statement, Stats, StudioPreview } from "@/components/home/HomeSections";
@@ -27,8 +29,10 @@ export default async function HomePage({ params }: Props) {
   return (
     <div className="page-enter">
       <Hero lang={lang} dict={dict} projects={projects} />
+      <Marquee projects={projects} />
       <Statement lang={lang} dict={dict} />
       <Featured lang={lang} dict={dict} project={featured} />
+      <Reel projects={projects} lang={lang} dict={dict} />
       <SelectedWorks lang={lang} dict={dict} projects={projects} />
       <MaterialLab dict={dict} />
       <Blueprint dict={dict} />

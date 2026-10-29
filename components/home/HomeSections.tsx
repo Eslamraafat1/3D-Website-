@@ -8,6 +8,7 @@ import ProjectCard from "@/components/work/ProjectCard";
 import Reveal from "@/components/ui/Reveal";
 import { CountUp, Parallax, WordFill } from "@/components/ui/Motion";
 import { ButtonLink, ProjectMeta, Section, SectionLabel } from "@/components/ui/primitives";
+import RiseText from "@/components/ui/RiseText";
 import ArticleCard from "@/components/sections/ArticleCard";
 
 type P = { lang: Locale; dict: Dict };
@@ -29,7 +30,7 @@ export function Statement({ dict }: P) {
 export function Featured({ lang, dict, project }: P & { project: ProjectView }) {
   return (
     <Section label={dict.featured.label} className="relative bg-[#171916] text-[#f1ede3]">
-      <Link href={`/${lang}/work/${project.slug}`} className="group relative block" aria-label={`${dict.common.viewCaseStudy}: ${project.title}`}>
+      <Link href={`/${lang}/work/${project.slug}`} data-cursor={dict.common.viewCaseStudy} className="group relative block" aria-label={`${dict.common.viewCaseStudy}: ${project.title}`}>
         <Parallax amount={7} className="h-[78svh] min-h-[34rem] w-full">
           <ArchArt art={{ ...project.art, tone: "dusk" }} label={project.title} className="h-full w-full transition-transform duration-[2000ms] group-hover:scale-[1.03]" />
         </Parallax>
@@ -74,7 +75,7 @@ export function SelectedWorks({ lang, dict, projects }: P & { projects: ProjectV
         <div className="mb-16 flex flex-col justify-between gap-8 md:mb-24 md:flex-row md:items-end">
           <div>
             <SectionLabel n="03" className="mb-6">{dict.works.label}</SectionLabel>
-            <h2 className="display text-[clamp(3rem,8vw,8rem)]">{dict.works.title}</h2>
+            <RiseText as="h2" className="display text-[clamp(3rem,8vw,8rem)]" text={dict.works.title} />
           </div>
           <div className="grid gap-6 md:max-w-sm">
             <p className="lead">{dict.works.intro}</p>
@@ -96,12 +97,12 @@ export function Philosophy({ dict }: P) {
     <Section label={dict.philosophy.label} className="section border-t border-line bg-surface">
       <div className="wrap">
         <SectionLabel n="06" className="mb-8">{dict.philosophy.label}</SectionLabel>
-        <h2 className="display mb-20 text-[clamp(2.4rem,5vw,4.5rem)] md:mb-28">{dict.philosophy.title}</h2>
+        <RiseText as="h2" className="display mb-20 text-[clamp(2.4rem,5vw,4.5rem)] md:mb-28" text={dict.philosophy.title} />
         <ol className="grid gap-0">
           {dict.philosophy.items.map((it, i) => (
             <Reveal as="li" key={it.name} className="grid items-start gap-6 border-t border-line py-12 md:grid-cols-12 md:py-16">
               <span className="mono text-accent-text md:col-span-1" dir="ltr">0{i + 1}</span>
-              <h3 className="display text-[clamp(3.4rem,10vw,10rem)] md:col-span-7">{it.name}</h3>
+              <RiseText as="h3" className="display text-[clamp(3.4rem,10vw,10rem)] md:col-span-7" text={it.name} />
               <div className="grid gap-6 md:col-span-4 md:pt-6">
                 <p className="text-fg-2">{it.text}</p>
                 <p className="mono border-s-2 border-accent ps-4 text-fg">{it.note}</p>
@@ -149,7 +150,7 @@ export function JournalPreview({ lang, dict, articles }: P & { articles: Article
         <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <SectionLabel n="08" className="mb-6">{dict.journal.label}</SectionLabel>
-            <h2 className="display text-[clamp(3rem,7vw,7rem)]">{dict.journal.title}</h2>
+            <RiseText as="h2" className="display text-[clamp(3rem,7vw,7rem)]" text={dict.journal.title} />
           </div>
           <ButtonLink href={`/${lang}/journal`}>{dict.journal.all}</ButtonLink>
         </div>
@@ -171,7 +172,7 @@ export function StudioPreview({ lang, dict, team }: P & { team: TeamMemberView[]
       <div className="wrap grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <SectionLabel n="09" className="mb-8">{dict.studioPreview.label}</SectionLabel>
-          <h2 className="display text-[clamp(2.6rem,5.6vw,5.5rem)]">{dict.studioPreview.title}</h2>
+          <RiseText as="h2" className="display text-[clamp(2.6rem,5.6vw,5.5rem)]" text={dict.studioPreview.title} />
           <p className="lead mt-8">{dict.studioPreview.text}</p>
           <div className="mt-10"><ButtonLink href={`/${lang}/studio`}>{dict.studioPreview.cta}</ButtonLink></div>
           <ul className="mt-14 grid gap-px bg-line">

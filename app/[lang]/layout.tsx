@@ -6,6 +6,7 @@ import { dirOf, isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import Cursor from "@/components/layout/Cursor";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { SITE_URL } from "@/lib/site";
 
@@ -62,6 +63,7 @@ export default async function RootLayout({ children, params }: { children: React
       </head>
       <body>
         <a href="#main" className="skip">{d.nav.skip}</a>
+        <Cursor />
         <ScrollProgress label={d.a11y.scrollProgress} />
         <Nav lang={lang} dict={d} />
         <main id="main" tabIndex={-1} className="outline-none">
