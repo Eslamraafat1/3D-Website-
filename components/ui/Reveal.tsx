@@ -25,11 +25,11 @@ export default function Reveal({ children, as: Tag = "div", delay = 0, mask = fa
           io.disconnect();
         }
       },
-      { rootMargin: "0px 0px -6% 0px", threshold: 0.04 },
+      { rootMargin: "0px 0px -6% 0px", threshold: mask ? 0 : 0.04 },
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [mask]);
   const attr = mask ? { "data-mask": "" } : { "data-reveal": "" };
   return (
     <Tag ref={ref} className={className} style={{ "--d": `${delay}s`, ...style } as CSSProperties} {...attr}>

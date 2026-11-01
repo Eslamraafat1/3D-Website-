@@ -176,7 +176,7 @@ html.js [data-reveal]:not(.in) { opacity: 0; transform: translateY(28px); }
 [data-reveal] { transition: opacity 1s var(--ease), transform 1.1s var(--ease); transition-delay: var(--d, 0s); }
 
 /* Mask reveal for images */
-html.js [data-mask]:not(.in) { clip-path: inset(0 0 100% 0); }
+html.js [data-mask]:not(.in) { clip-path: inset(0 0 99.5% 0); }
 [data-mask] { transition: clip-path 1.4s var(--ease); transition-delay: var(--d, 0s); clip-path: inset(0 0 0 0); }
 
 /* Line reveal for headlines */

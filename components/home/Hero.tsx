@@ -73,7 +73,7 @@ export default function Hero({ lang, dict, projects }: { lang: Locale; dict: Dic
     <section ref={root} data-section={dict.hero.index} className="relative min-h-svh overflow-hidden bg-surface" aria-labelledby="hero-title">
       {/* Scene layer */}
       <div className="absolute inset-0">
-        <div className={`absolute inset-y-0 end-0 w-full transition-opacity duration-[1600ms] md:w-[78%] ${use3d && ready ? "opacity-0" : "opacity-100"}`} style={{ maskImage: "linear-gradient(to left, #000 62%, transparent)" }}>
+        <div className={`absolute inset-y-0 end-0 w-full transition-opacity duration-[1600ms] md:w-[78%] ${use3d && ready ? "opacity-0" : "opacity-100 max-md:opacity-50"}`} style={{ maskImage: "linear-gradient(to left, #000 62%, transparent)" }}>
           <ArchArt art={{ variant: "monolith", seed: 7, tone: "warm" }} label={dict.hero.alt} className="h-full w-full" />
         </div>
         {use3d && (
