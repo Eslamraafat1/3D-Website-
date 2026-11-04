@@ -163,6 +163,22 @@ Environment variables are optional — see [`.env.example`](.env.example) (`NEXT
 
 Deployed on **Vercel** from `main`: <https://3-d-website-seven-xi.vercel.app>. No configuration is required: on Vercel the canonical URL comes from `VERCEL_PROJECT_PRODUCTION_URL` automatically. Set `NEXT_PUBLIC_SITE_URL` if you add a custom domain.
 
+<!-- more-projects:start -->
+## More of my work
+
+| Project | What it is | Demo |
+|---|---|---|
+| **[VANTA](https://github.com/Eslamraafat1/E-commerce-New-)** | 3D bilingual e-commerce storefront | [Live](https://e-commerce-new2-delta.vercel.app/en) |
+| **[Atlas Estates](https://github.com/Eslamraafat1/New-Real-Estate)** | 3D real estate platform | [Live](https://new-real-estate-jade.vercel.app) |
+| **[Crust & Crave](https://github.com/Eslamraafat1/New-Restaurant)** | cinematic restaurant storefront | [Live](https://new-restaurant-kappa.vercel.app) |
+| **[NEXORA Academy](https://github.com/Eslamraafat1/Courses-N)** | bilingual e-learning platform | [Live](https://courses-n.vercel.app) |
+| **[Nubia](https://github.com/Eslamraafat1/Perfume)** | perfume store on Supabase | [Live](https://perfume-sooty-alpha.vercel.app) |
+| **[Tour Egypt Club](https://github.com/Eslamraafat1/Travel)** | client travel & tours website | [Live](https://touregyptclub.com) |
+| **[Portfolio](https://github.com/Eslamraafat1/new-portfolio)** | bilingual Next.js portfolio | [Live](https://new-portfolio-ashy-xi.vercel.app) |
+
+See everything on my [GitHub profile](https://github.com/Eslamraafat1) and [portfolio](https://new-portfolio-ashy-xi.vercel.app/).
+<!-- more-projects:end -->
+
 ## Author
 
 **Eslam Raafat** — Front-End Developer
