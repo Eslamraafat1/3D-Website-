@@ -5,7 +5,8 @@ import { ArrowLeft } from "lucide-react";
 import { isLocale, locales, num } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { getArticle, getArticleSlugs, getArticles } from "@/lib/services/content";
-import { pageMetadata } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/ui/JsonLd";
 import ArchArt from "@/components/art/ArchArt";
 import ArticleCard from "@/components/sections/ArticleCard";
 import Reveal from "@/components/ui/Reveal";
@@ -38,6 +39,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <article className="page-enter">
+      <JsonLd data={[articleJsonLd(lang, article), breadcrumbJsonLd(lang, [[dict.brand, ""], [dict.nav.journal, "/journal"], [article.title, `/journal/${slug}`]])]} />
       <header className="pb-12 pt-[calc(var(--nav-h)+3rem)]" data-section={dict.journal.label}>
         <div className="wrap">
           <Link href={`/${lang}/journal`} className="label mb-10 inline-flex items-center gap-2 text-fg-2 hover:text-fg"><ArrowLeft size={14} className="rtl:-scale-x-100" aria-hidden /> {dict.journal.backToJournal}</Link>

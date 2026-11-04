@@ -18,6 +18,7 @@ export default function InquiryForm({ dict }: { dict: Dict }) {
   const [touched, setTouched] = useState<Partial<Record<keyof Values, boolean>>>({});
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [reference, setReference] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const summary = useRef<HTMLDivElement>(null);
 
   function validate(x: Values): Errors {
@@ -42,6 +43,7 @@ export default function InquiryForm({ dict }: { dict: Dict }) {
 
   async function onSubmit(ev: React.FormEvent) {
     ev.preventDefault();
+    setSubmitted(true);
     const found = validate(v);
     setErrors(found);
     setTouched(Object.fromEntries(Object.keys(v).map((k) => [k, true])));
@@ -61,7 +63,8 @@ export default function InquiryForm({ dict }: { dict: Dict }) {
     }
   }
 
-  const err = (k: keyof Values) => (touched[k] || Object.keys(errors).length ? errors[k] : undefined);
+  // A field shows its error once it has been visited (or after a submit attempt marks every field touched).
+  const err = (k: keyof Values) => (touched[k] ? errors[k] : undefined);
   const aria = (k: keyof Values) => ({ "aria-invalid": err(k) ? true : undefined, "aria-describedby": err(k) ? `${k}-err` : undefined });
   const renderErr = (k: keyof Values) => (err(k) ? <p id={`${k}-err`} className="err">{err(k)}</p> : null);
 
@@ -71,12 +74,13 @@ export default function InquiryForm({ dict }: { dict: Dict }) {
         <p className="mono text-accent-text">{dict.form.reference}: <span dir="ltr">{reference}</span></p>
         <h2 className="display mt-4 text-[clamp(2.2rem,4vw,3.6rem)]">{dict.form.successTitle}</h2>
         <p className="mt-4 max-w-[52ch] text-fg-2">{dict.form.successText} <span dir="ltr" className="mono text-fg">{reference}</span>.</p>
-        <button type="button" className="btn mt-8" onClick={() => { setV(EMPTY); setErrors({}); setTouched({}); setState("idle"); }}>{dict.form.another}</button>
+        <button type="button" className="btn mt-8" onClick={() => { setV(EMPTY); setErrors({}); setTouched({}); setSubmitted(false); setState("idle"); }}>{dict.form.another}</button>
       </div>
     );
   }
 
-  const count = Object.keys(errors).length;
+  // The summary only appears after a submit attempt, so it never shifts the layout while the user is still filling in fields.
+  const count = submitted ? Object.keys(errors).length : 0;
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-8" aria-describedby="form-demo">
       {count > 0 && (

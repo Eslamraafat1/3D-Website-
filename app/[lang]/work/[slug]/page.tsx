@@ -7,7 +7,8 @@ import { isLocale, locales, num } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { getAdjacentProjects, getPlan, getProject, getProjectSlugs, getRelatedProjects, getTeamByIds } from "@/lib/services/content";
 import { materialArt } from "@/lib/data/materials";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata, projectJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/ui/JsonLd";
 import ArchArt from "@/components/art/ArchArt";
 import FloorPlan from "@/components/plan/FloorPlan";
 import ProjectGallery from "@/components/work/ProjectGallery";
@@ -49,6 +50,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <article className="page-enter" style={identity}>
+      <JsonLd data={[projectJsonLd(lang, project), breadcrumbJsonLd(lang, [[dict.brand, ""], [dict.nav.work, "/work"], [project.title, `/work/${slug}`]])]} />
       {/* 1 — Cover */}
       <Section label={dict.case.overview} className="relative min-h-svh overflow-hidden bg-[#171916] text-[#f5f3ee]">
         <Parallax amount={6} className="absolute inset-0">

@@ -34,6 +34,8 @@ export function proxy(request: NextRequest) {
   }
 }
 
+// Note the double backslash: in a JS string "\\." is a literal dot, so any path
+// containing a dot (robots.txt, sitemap.xml, favicon.ico, …) is skipped.
 export const config = {
-  matcher: ["/((?!_next|api|.*\..*).*)"],
+  matcher: ["/((?!_next|api|.*\\..*).*)"],
 };

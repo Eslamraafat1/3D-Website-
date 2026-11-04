@@ -9,6 +9,8 @@ import Footer from "@/components/layout/Footer";
 import Cursor from "@/components/layout/Cursor";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { SITE_URL } from "@/lib/site";
+import { siteJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/ui/JsonLd";
 
 const sans = Geist({ variable: "--f-sans", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--f-mono", subsets: ["latin"] });
@@ -62,6 +64,7 @@ export default async function RootLayout({ children, params }: { children: React
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
       <body>
+        <JsonLd data={siteJsonLd(lang, d.brand, d.meta.home.description)} />
         <a href="#main" className="skip">{d.nav.skip}</a>
         <Cursor />
         <ScrollProgress label={d.a11y.scrollProgress} />
