@@ -1,0 +1,13 @@
+{
+  "name": "monolith-3d-website-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:local": "BASE_URL=http://localhost:3000 playwright test",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.48.2"
+  }
+}
