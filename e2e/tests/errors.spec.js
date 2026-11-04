@@ -23,9 +23,10 @@ test.describe('404 handling', () => {
 });
 
 test.describe('Reduced motion', () => {
-  test.use({ reducedMotion: 'reduce' });
-
   test('content is visible immediately and the intro curtain is skipped', async ({ page }) => {
+    // emulateMedia is applied reliably on every Chromium build; the `reducedMotion` context
+    // option was not honoured by the browser Playwright 1.48 installs on CI.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/en');
     await expect(page.locator('.curtain')).toBeHidden();
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
