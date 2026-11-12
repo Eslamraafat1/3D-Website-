@@ -1,6 +1,28 @@
 {
   "name": "monolith-3d-website",
   "version": "0.1.0",
+  "author": "Eslam Raafat <https://new-portfolio-ashy-xi.vercel.app>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eslamraafat1/3D-Website-.git"
+  },
+  "homepage": "https://3-d-website-seven-xi.vercel.app",
+  "bugs": {
+    "url": "https://github.com/Eslamraafat1/3D-Website-/issues"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "threejs",
+    "react-three-fiber",
+    "gsap",
+    "framer-motion",
+    "tailwindcss",
+    "typescript",
+    "arabic",
+    "rtl",
+    "portfolio"
+  ],
   "private": true,
   "description": "MONOLITH® — a fictional architecture studio site: Next.js 16 (Cache Components), React 19, React Three Fiber, GSAP, bilingual EN/AR.",
   "license": "MIT",
@@ -12,7 +34,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.2",
